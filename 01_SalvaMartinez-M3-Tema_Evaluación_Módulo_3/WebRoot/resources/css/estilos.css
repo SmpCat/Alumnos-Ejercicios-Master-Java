@@ -1,0 +1,10 @@
+/*-- Estilos colocacion elementos aplicacion de ejemplo --* /
+/*-- fecha: 10-9-2105. -- */
+/*-- version: 2 -- */
+.capa_ventana {
+	position: absolute;
+	top: 150px;
+	left: 450px;
+	width: 350px;
+	height: 200px;
+}
