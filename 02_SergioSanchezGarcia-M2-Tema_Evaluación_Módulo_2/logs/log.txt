@@ -1,0 +1,67 @@
+INFO  19:20:33:0672 Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2401f4c3: startup date [Sat Jun 01 19:20:33 CEST 2019]; root of context hierarchy
+INFO  19:20:33:0710 Loading XML bean definitions from class path resource [com/atrium/spring/modelo.xml]
+INFO  19:20:33:0975 JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+INFO  19:20:34:0263 HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+INFO  19:20:34:0267 HHH000412: Hibernate Core {4.3.11.Final}
+INFO  19:20:34:0268 HHH000206: hibernate.properties not found
+INFO  19:20:34:0270 HHH000021: Bytecode provider name : javassist
+INFO  19:20:34:0293 HHH000044: Configuring from URL: file:src/com/atrium/hibernate/hibernate.cfg.xml
+INFO  19:20:34:0334 HHH000041: Configured SessionFactory: null
+INFO  19:20:36:0293 HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+INFO  19:20:36:0434 HHH000399: Using default transaction strategy (direct JDBC transactions)
+INFO  19:20:36:0441 HHH000397: Using ASTQueryTranslatorFactory
+WARN  19:20:37:0179 [DEPRECATION] Encountered positional parameter near line 1, column 80 in HQL: [from com.atrium.hibernate.Linea_Pedido as model where model.codigoLineaPedido= ?].  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+INFO  19:20:37:0258 * Se añade la línea de Pedido que contiene 4 Disco Duro 3TB
+INFO  19:20:37:0258 -- Ya no hay más Artículos en el Pedido --
+INFO  19:20:37:0313 **** Pedido número: 1 ****
+INFO  19:20:37:0313 Fecha de Pedido: 2019-05-05
+INFO  19:20:37:0314 Porte de Pedido: 25.6
+INFO  19:20:37:0314 Seguro de Pedido: 2.35
+INFO  19:20:37:0314 Otros Cargos de Pedido: 3.5
+INFO  19:20:37:0314 Total Cargos de Pedido: 20.2
+INFO  19:20:37:0314 Total Bruto de Pedido: 35.2
+INFO  19:20:37:0314 Porcentaje IVA de Pedido: 21
+INFO  19:20:37:0315 IVA de Pedido: 12.5
+INFO  19:20:37:0315 Total Cargo de Pedido: 42.25
+INFO  19:20:37:0315 Código de Cliente: 15
+INFO  19:20:37:0315 ----- Lineas de Pedido asociadas: 2 -----
+INFO  19:20:37:0315 Código de Linea de Pedido: 2
+INFO  19:20:37:0316 Código de Artículo: 3
+INFO  19:20:37:0316 Precio Unidad Artículo: 2.34
+INFO  19:20:37:0316 Número Unidades de Artículo: 6
+INFO  19:20:37:0316 Porcentaje de descuento: 10.0%
+INFO  19:20:37:0316 --------------------------------------
+INFO  19:20:37:0316 Código de Linea de Pedido: 3
+INFO  19:20:37:0316 Código de Artículo: 4
+INFO  19:20:37:0316 Precio Unidad Artículo: 2.34
+INFO  19:20:37:0316 Número Unidades de Artículo: 2
+INFO  19:20:37:0316 Porcentaje de descuento: 10.0%
+INFO  19:20:37:0317 --------------------------------------
+WARN  19:20:37:0326 [DEPRECATION] Encountered positional parameter near line 1, column 70 in HQL: [from com.atrium.hibernate.Pedidos as model where model.numeroPedido= ?].  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+INFO  19:20:37:0366 *****************LISTA DE PEDIDOS******************
+INFO  19:20:37:0366 Número de Pedidos: 1
+INFO  19:20:37:0366 **** Pedido número: 1 ****
+INFO  19:20:37:0366 Fecha de Pedido: 2019-05-05
+INFO  19:20:37:0367 Porte de Pedido: 25.6
+INFO  19:20:37:0367 Seguro de Pedido: 2.35
+INFO  19:20:37:0367 Otros Cargos de Pedido: 3.5
+INFO  19:20:37:0367 Total Cargos de Pedido: 20.2
+INFO  19:20:37:0367 Total Bruto de Pedido: 35.2
+INFO  19:20:37:0367 Porcentaje IVA de Pedido: 21
+INFO  19:20:37:0367 IVA de Pedido: 12.5
+INFO  19:20:37:0367 Total Cargo de Pedido: 42.25
+INFO  19:20:37:0367 Código de Cliente: 15
+INFO  19:20:37:0367 ----- Lineas de Pedido asociadas: 2 -----
+INFO  19:20:37:0367 Código de Linea de Pedido: 2
+INFO  19:20:37:0368 Código de Artículo: 3
+INFO  19:20:37:0368 Precio Unidad Artículo: 2.34
+INFO  19:20:37:0368 Número Unidades de Artículo: 6
+INFO  19:20:37:0368 Porcentaje de descuento: 10.0%
+INFO  19:20:37:0368 --------------------------------------
+INFO  19:20:37:0368 Código de Linea de Pedido: 3
+INFO  19:20:37:0368 Código de Artículo: 4
+INFO  19:20:37:0368 Precio Unidad Artículo: 2.34
+INFO  19:20:37:0368 Número Unidades de Artículo: 2
+INFO  19:20:37:0369 Porcentaje de descuento: 10.0%
+INFO  19:20:37:0369 --------------------------------------
+INFO  19:20:37:0391 * Comienza la generación del Pedido
