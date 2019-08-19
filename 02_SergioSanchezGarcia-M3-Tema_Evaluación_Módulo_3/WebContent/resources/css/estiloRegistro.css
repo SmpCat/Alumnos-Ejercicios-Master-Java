@@ -1,0 +1,136 @@
+/****************************
+ *   ESTILOS DEL REGISTRO	*
+ *							*
+ * Autor: Sergio Sanchez	*	
+ * Fecha: 25/06/2017		*
+ * Version: 2.5				*
+ ****************************/
+
+.ui-widget-content {
+    border: none; 
+    width: 100%; 
+    font-family: 'Open Sans', sans-serif;
+    font-size: .9em; 
+    min-width: 43em; 
+}
+
+.ui-inputfield.ui-state-optional {
+	padding-left: 15px; 
+   	-webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: calc(100% - 50px);
+    border-radius: 80px;
+    box-sizing: border-box;
+    outline: 0;
+    margin-left: -4em;
+    background: 0 0;
+    -webkit-transition: .2s ease-in-out;
+    transition: .2s ease-in-out;
+    opacity: 1;
+    background: #FEEFDC;
+    min-width:10em;
+    max-width:15em;
+    border-color: #F3A43D;
+    font-family: 'Open Sans', sans-serif;
+    color: chocolate;
+}
+
+
+.ui-panel .ui-panel-titlebar {
+   width : 100%; 
+    padding: 0px;
+    padding-left: 40%;
+    border: none;
+    background: #F6C554;
+    height: 3em;
+    font-size: 1.3em;
+    font-family: "Open Sans", sans-serif;
+}
+
+
+.ui-input-label-left{
+	margin-top: 2em;
+	min-width: 15em;
+	color: black;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.ui-widget input{
+    height: 2em;
+    width: 8em;
+    border-radius: 80px;
+    border: none;
+    font-size: 1em;
+	background: #F28425;
+	border-style: hidden;
+	margin-top: 2em;
+	margin-left: 3em;
+	color: white;
+	font-family: 'Open Sans', sans-serif;
+	
+}
+
+.ui-widget input:hover{
+  background-color: white; 
+  color: #F28425;  
+  border: 1px solid #F28425;
+}
+
+
+.ui-faces-message .ui-widget {
+   padding: 0.5em;
+   float:left;
+   font-size:.8em;
+   margin-top: 2em;
+}
+
+
+td {
+	width: 60%;	 
+}
+
+
+.ui-panel {
+	padding:0;
+	margin:0;
+	width: -webkit-fill-available;
+	height:  -webkit-fill-available;
+}
+
+.ui-selectmenu .ui-selectmenu-value {
+
+min-width: 5em;
+
+/* float: left; */
+
+/* padding-left: 15px; */
+
+border-radius: 80px;
+margin-left: -4em;
+
+
+box-sizing: border-box;
+
+/* margin-left: 10em; */
+
+background: #FEEFDC;
+
+border: 1px solid #F3A43D;
+
+font-family: 'Open Sans', sans-serif;
+
+color: chocolate;
+}
+
+
+span.fa.fa-chevron-down::before {
+	font-size: 1.3em; 
+	color: black;
+	background: #F3A43D;
+	    	 
+}
+
+span.ui-state-default.ui-corner-right.ui-selectmenu-button{
+	background: #F3A43D;
+	border: 1px solid #F3A43D
+}

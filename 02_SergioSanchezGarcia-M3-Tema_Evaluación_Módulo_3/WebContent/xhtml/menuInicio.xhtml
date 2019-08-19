@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ace="http://www.icefaces.org/icefaces/components">
+<h:head>
+	<!-- CARGA DE RECURSOS ESTATICOS -->
+  <h:outputStylesheet name="css/estiloMenu.css" />
+</h:head>
+<h:body>
+
+	<!-- CREACION DEL RESOURCEBUNDLE PARA LA IDIMATIZACION -->
+	<f:loadBundle basename="#{sessionScope.idioma_seleccionado}"
+		var="idioma" />
+
+	<!-- FORMULARIO -->
+	<h:form id="formu_login">
+            <ace:panel id="credencialesLogin" header="#{idioma['menu.head.menuPrincipal']}" styleClass="panel">
+              <!--  <h:panelGrid id="panel_login" columns="2" width="100%" styleClass="textEntryInputTable">  -->
+				<div class="bienvenida">
+					<h:outputText styleClass="labelBienvenida" value="#{idioma['menu.label.saludo'].concat(menuBean.nomUsu)}">
+					</h:outputText>
+					<div class="cajaIdiomas">
+					<h:commandButton action="#{registroBean.cambioIdiomaES}" styleClass="botonIdioma" image="../resources/imagenes/ico_ES.png" />
+					<h:commandButton action="#{registroBean.cambioIdiomaEN}" styleClass="botonIdioma" image="../resources/imagenes/ico_EN.png" />
+					<h:commandButton action="#{registroBean.cambioIdiomaFR}" styleClass="botonIdioma" image="../resources/imagenes/ico_FR.png" />
+					<h:commandButton action="#{registroBean.cambioIdiomaGE}" styleClass="botonIdioma" image="../resources/imagenes/ico_GE.png" />
+					</div>
+					<div class="cajaIdiomas">
+					<h:commandButton onclick="ice.ace.instance('formu_login:confirmacion').show();" styleClass="botonIdioma" image="../resources/imagenes/logout.png" />
+					</div>
+					 
+				</div>
+				
+				<div>
+					<img class="iconoBoton" height="25px" width="25px" alt="Gestion Pedidos" title="Gestion Pedidos"
+                   		src="../resources/imagenes/gestionPedidos.png">
+                	</img>
+              	 	<h:commandButton id="botonRegistro" value="#{idioma['menu.boton.gestionPedido']}"
+									action="#{menuBean.irGestionPedidos}">
+					</h:commandButton>
+               	</div>
+               	<div>     
+                	<img class="iconoBoton" height="25px" width="25px" alt="Gestion Pedidos" title="Gestion Pedidos"
+                   		src="../resources/imagenes/crearPedido.png">
+                	</img>
+                	
+                    <h:commandButton id="boton" value="#{idioma['menu.boton.nuevoPedido']}"
+									action="#{menuBean.irNuevoPedido}">
+					</h:commandButton>				
+				</div>
+
+            </ace:panel> 
+            
+            <ace:confirmationDialog id="confirmacion"
+                    message="#{idioma['form.label.confirmCerrarSesion']}"
+                    header="#{idioma['form.header.confirmCerrarSesion']}"
+                    closable="true"
+                    closeOnEscape="false">
+                    
+                <h:panelGrid width="100%"
+                			 style="text-align: center;"
+                			 columns="2"
+                			 cellspacing="30">
+                    <h:commandButton class="confirmar" value="#{idioma['form.boton.si']}" action="#{login_bean.desconexion}" onclick="ice.ace.instance('formu_login:confirmacion').hide();"/>
+                    <h:commandButton class="confirmar" value="#{idioma['form.boton.no']}" onclick="ice.ace.instance('formu_login:confirmacion').hide();"/>
+                </h:panelGrid>
+            </ace:confirmationDialog>
+	</h:form>
+</h:body>
+</html>

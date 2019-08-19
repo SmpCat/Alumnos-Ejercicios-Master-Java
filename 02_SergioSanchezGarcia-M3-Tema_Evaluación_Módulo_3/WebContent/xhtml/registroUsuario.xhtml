@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ace="http://www.icefaces.org/icefaces/components">
+<h:head>
+	<!-- CARGA DE RECURSOS ESTATICOS -->
+  <h:outputStylesheet name="css/estiloRegistro.css" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"></link>
+
+</h:head>
+<h:body>
+
+	
+	<!-- CREACION DEL RESOURCEBUNDLE PARA LA IDIMATIZACION -->
+	<f:loadBundle basename="#{sessionScope.idioma_seleccionado}"
+		var="idioma" />
+
+	<!-- FORMULARIO -->
+	<h:form id="formRegistro">
+    	<ace:panel id="registroUsuario"
+    			   header="#{idioma['form.header.registro']}"
+    			   styleClass="cabecera">
+    			   
+        	<h:panelGrid id="panelRegistro" columns="2" width="100%" styleClass="textEntryInputTable">
+        		
+        		<!-- NOMBRE DE USUARIO -->
+            	<ace:textEntry id="nombreUsuario"
+                    		   value="#{registroBean.nombreUsuario}"
+                    		   label="#{idioma['form.label.nombreUsuario']}"
+                    		   labelPosition="left"> 
+                </ace:textEntry>
+                
+                <!-- MENSAJE DE COMPROBACIÓN DE NOMBRE USUARIO -->
+                <ace:message id="errorNombreUsuario"
+                			 for="nombreUsuario"
+                			 showDetail="false"
+                			 showSummary="true"
+                			 initEffect="bounce"
+                			 changeEffect="explode"/>
+                 
+                 <!-- CONTRASEÑA -->                     
+                <ace:textEntry secret="true"
+                			   styleClass="my-special"
+                			   id="claveUsuario"
+                			   value="#{registroBean.claveUsuario}"
+                			   label="#{idioma['form.label.clave']}"
+                			   labelPosition="left">
+                </ace:textEntry>
+                
+          		<!-- MENSAJE DE CONTRASEÑA -->
+                <ace:message id="errorClaveUsuario"
+                			 for="claveUsuario"
+                			 showDetail="false"
+                			 showSummary="true"
+                			 initEffect="bounce"
+                			 changeEffect="explode"/>
+                			
+                  <!-- REPETIR CONTRASEÑA -->                     
+                <ace:textEntry secret="true"
+                			   styleClass="my-special"
+                			   id="repetirClaveUsuario"
+                			   value="#{registroBean.repetirClaveUsuario}"
+                			   label="#{idioma['form.label.repetirClave']}"
+                			   labelPosition="left">
+                </ace:textEntry>
+                
+          		<!-- MENSAJE DE CONTRASEÑA -->
+                <ace:message id="errorRepetirClaveUsuario"
+                			 for="repetirClaveUsuario"
+                			 showDetail="false"
+                			 showSummary="true"
+                			 initEffect="bounce"
+                			 changeEffect="explode"/>
+                	
+        		<!-- IDIOMA DE USUARIO -->
+             
+                <ace:selectMenu id="idiomaUsuario" 
+                			  value="#{registroBean.seleccionIdiomaUsuario}"
+                              label="#{idioma['form.label.idioma']}"
+                              labelPosition="left">
+                              
+                	<f:selectItem itemValue="es" itemLabel="#{idioma['form.label.idioma.esp']}" />
+                    <f:selectItem itemValue="en" itemLabel="#{idioma['form.label.idioma.en']}" />
+                    <f:selectItem itemValue="fr" itemLabel="#{idioma['form.label.idioma.fr']}" />
+                    <f:selectItem itemValue="ge" itemLabel="#{idioma['form.label.idioma.ger']}" />
+
+                </ace:selectMenu>
+                
+                
+                <!-- MENSAJE DE COMBO -->
+                <ace:message id="errorIdioma"
+                			 for="idiomaUsuario"
+                			 showDetail="false"
+                			 showSummary="true"
+                			 initEffect="bounce"
+                			 changeEffect="explode"/>
+                
+        		<!-- DNI -->
+            	<ace:maskedEntry id="dni"
+                    		   value="#{registroBean.dni}"
+                    		   label="#{idioma['form.label.dni']}"
+                    		   labelPosition="left"
+                    		   mask="99999999-a">                		   
+                </ace:maskedEntry>
+                
+                <!-- MENSAJE DE COMPROBACIÓN DE DNI -->
+                <ace:message id="errorDni"
+                			 for="dni"
+                			 showDetail="false"
+                			 showSummary="true"
+                			 initEffect="bounce"
+                			 changeEffect="explode"/>
+                			 
+        		<!-- CORREO ELECTRÓNICO -->
+            	<ace:textEntry id="correoElectronico"
+                    		   value="#{registroBean.email}"
+                    		   label="#{idioma['form.label.email']}"
+                    		   labelPosition="left">                		   
+                </ace:textEntry>
+                
+                <!-- MENSAJE DE COMPROBACIÓN DE CORREO ELECTRÓNICO -->
+                <ace:message id="errorCorreoElectronico"
+                			 for="correoElectronico"
+                			 showDetail="false"
+                			 showSummary="true"
+                			 initEffect="bounce"
+                			 changeEffect="explode"/>
+                			 
+                			 	 
+                <h:panelGroup>
+                
+                	<!-- BOTÓN DE VOLVER  -->
+              		<h:commandButton id="botonVolver"
+                    				 value="#{idioma['form.button.botonVolver']}"
+									 action="#{registroBean.volverLogin}"/>
+					
+					<!-- BOTÓN DE REGISTRO -->				 
+                	<h:commandButton id="botonRegistro"
+                					 value="#{idioma['form.button.botonRegistro']}"
+									 action="#{registroBean.comprobarDatos}"
+									 actionListener="#{registroBean.eventoComprobarDatos}">
+
+					</h:commandButton>
+                    
+                    
+				</h:panelGroup>
+
+			</h:panelGrid>
+		</ace:panel>
+	</h:form>
+</h:body>
+</html>

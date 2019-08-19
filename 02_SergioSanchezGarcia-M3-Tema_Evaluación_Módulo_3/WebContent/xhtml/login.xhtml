@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ace="http://www.icefaces.org/icefaces/components">
+<h:head>
+	<!-- CARGA DE RECURSOS ESTATICOS -->
+  <h:outputStylesheet name="css/estiloLogin.css" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"></link>
+
+</h:head>
+<h:body>
+
+	
+	<!-- CREACION DEL RESOURCEBUNDLE PARA LA IDIMATIZACION -->
+	<f:loadBundle basename="#{sessionScope.idioma_seleccionado}"
+		var="idioma" />
+
+	<!-- FORMULARIO -->
+	<h:form id="formu_login">
+            <ace:panel id="credencialesLogin" header="#{idioma['formu.login.header']}" styleClass="cabecera">
+                <h:panelGrid id="panel_login" columns="2" width="100%" styleClass="textEntryInputTable">
+                    <ace:textEntry id="nombre_login" value="#{login_bean.nombre}"  label="#{idioma['formu.login.eti.nombreusuario']}" labelPosition="left">
+                    </ace:textEntry>
+                    <ace:message id="error_nombrelogin" for="nombre_login" showDetail="false" showSummary="true" initEffect="bounce" changeEffect="explode"/>
+                                       
+                    <ace:textEntry secret="true" styleClass="my-special" id="clave_login" value="#{login_bean.clave}" label="#{idioma['formu.login.eti.claveusario']}" labelPosition="left">
+                    </ace:textEntry>
+                    <ace:message  id="error_clavelogin" for="clave_login" showDetail="false" showSummary="true" initEffect="bounce" changeEffect="explode"/>
+                   <h:panelGroup>
+                     <h:commandButton id="botonRegistro" value="#{idioma['formu.login.boton.registro']}"
+				action="#{login_bean.registroUsuario}"/>
+                    
+                    <h:commandButton id="boton" value="#{idioma['formu.login.boton.comprobar']}"
+				action="#{login_bean.comprobar_Credenciales}"
+				actionListener="#{login_bean.evento_ComprobarCredenciales}"/>
+				</h:panelGroup>
+             </h:panelGrid>
+         </ace:panel>
+	</h:form>
+</h:body>
+</html>

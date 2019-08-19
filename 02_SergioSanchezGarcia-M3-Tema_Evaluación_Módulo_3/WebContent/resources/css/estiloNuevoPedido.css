@@ -1,0 +1,95 @@
+/****************************
+ *   ESTILOS DEL LOGIN		*
+ *							*
+ * Autor: Sergio Sanchez	*	
+ * Fecha: 25/06/2017		*
+ * Version: 2.5				*
+ ****************************/
+
+td{
+    font-size: .9em;
+    background: 0 0;
+    background: #FEEFDC;
+    height: 2em;
+    border-color: #F3A43D;
+    font-family: "Open Sans", sans-serif;
+    color: #743000;
+    
+}
+
+.ui-widget-header {
+
+    font-size: .9em;
+    background: 0 0;
+    background: #FEEFDC;
+    height: 2em;
+    border-color: #F3A43D;
+    font-family: "Open Sans", sans-serif;
+    color: chocolate;
+
+}
+
+
+.ui-inputfield.ui-state-optional {
+    width: calc(100% - 50px);
+    box-sizing: border-box;
+    padding-left:;
+    font-size: 1em;
+    background: #ffffff;
+    min-width:2em;
+    max-width:2em;
+    height: 2em;
+    border-color: #F3A43D;
+    color: chocolate;
+}
+
+
+.ui-panel .ui-panel-titlebar {
+    padding: 0px;
+    padding-left: 40%;
+    border: none;
+    background: #F6C554;
+    height: 3em;
+    font-size: 1.3em;
+}
+
+
+.ui-panel .ui-panel-content {
+    border: 0;
+    background: white; 
+    padding: 0; 
+}
+
+.ice-checkboxbutton .ui-button > span > button {
+    border: 0;
+    padding: 0;
+    margin:0; 
+}
+
+
+
+.ui-widget-content .botonNuevoPedido .ui-state-default {
+	height: 2em;
+    min-width: 10em;
+    max-width: 15em;
+    border-radius: 80px;
+    border: none;
+    font-size: 1em;
+	background: #F28425;
+	border-style: hidden;
+	margin-top: 2em;
+	margin-left: 1em;
+	color: white;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.ui-widget-content .botonNuevoPedido .ui-state-default:hover {
+	background-color: white; 
+ 	color: #F28425;  
+  	border: 1px solid #F28425;
+}
+
+.ui-widget-content{
+	border: 0px;
+	font-family: 'Open Sans', sans-serif;
+}

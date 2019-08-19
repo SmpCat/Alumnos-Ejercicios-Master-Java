@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:icecore="http://www.icefaces.org/icefaces/core"
+	xmlns:ace="http://www.icefaces.org/icefaces/components"
+	xmlns:ice="http://www.icesoft.com/icefaces/component">
+<h:head>
+
+</h:head>
+<h:body>
+	<h:form id="formu_datatable">
+		<h:panelGrid columns="1">
+
+			<!-- COMPONENTE TABULAR -->
+			<ace:dataTable id="tabla_pedidos"
+				value="#{pedidos_bean.lista_pedidos}" var="pedido"
+				rows="5" paginator="true" 
+				paginatorPosition="bottom" paginatorAlwaysVisible="true"
+				emptyMessage="Base de datos fuera de linea"
+				reorderableColumns="false"
+				resizableColumns="true" selectionMode="multiple"
+				doubleClickSelect="true" binding="#{table_pedido}">
+				<!-- CABECERA DE MULTIPLES FILAS -->
+				<ace:columnGroup id="cabeceras_multiples">
+					<!-- PRIMERA FILA (TITULO GENERAL)-->
+					<ace:row>
+						<ace:column headerText="LISTADO DE PEDIDOS." colspan="6" />
+					</ace:row>
+					<!-- SEGUNDA FILA (CONTENIDO CABECERAS)-->
+					<ace:row>
+						<ace:column headerText="Selector" />
+						<ace:column headerText="Nª Fila" />
+						<ace:column headerText="Nº pedido"
+							filterBy="#{pedido.numeroPedido}" filterMatchMode="exact"
+							sortBy="#{pedido.numeroPedido}" />
+						<ace:column headerText="Fecha" sortBy="#{pedido.fechaPedido}" />
+						<ace:column headerText="Total Pedido" />
+						<ace:column headerText="Cliente" />
+					</ace:row>
+				</ace:columnGroup>
+				<!-- SELECTOR FILA PARA MAESTRO DETALLE -->
+				<ace:column id="selector_fila">
+					<ace:expansionToggler id="selector"
+						changeListener="#{pedidos_bean.evento_SeleccionDetalle}" />
+				</ace:column>
+				<!-- COLUMNA DE NUMERO DE FILA -->
+				<ace:column id="col_numerolinea">
+					<h:outputText id="numerolinea" value="#{table_pedido.rowIndex+1}" />
+				</ace:column>
+				<!-- COLUMNA ORDENADA Y FILTRADA -->
+				<ace:column id="col_numeropedido">
+					<h:outputText id="numero_pedido" value="#{pedido.numeroPedido}" />
+				</ace:column>
+				<!-- COLUMNA ORDENADA -->
+				<ace:column id="col_fechapedido">
+					<h:outputText id="fecha_pedido" value="#{pedido.fechaPedido}">
+						<f:convertDateTime type="date" pattern="dd-MMMM-yyyy" />
+					</h:outputText>
+				</ace:column>
+				<!-- COLUMNA DE TOTAL, SOLO CONVERSION DE DATOS -->
+				<ace:column id="col_totalbruto">
+					<h:outputText id="total_bruto" value="#{pedido.totalBrutoPedido}">
+						<f:convertNumber type="currency" />
+					</h:outputText>
+				</ace:column>
+				<!-- COLUMNA DE CODIGO CLIENTE -->
+				<ace:column id="col_cliente">
+					<h:outputText id="codigo_cliente"
+						value="#{pedido.clientes.codigoCliente}" />
+				</ace:column>
+				<!-- PANEL DE DETALLE -->
+				<ace:panelExpansion id="panel_detalle">
+					<h:panelGrid id="panel_detalle_tabla" columns="6">
+						<h:outputText id="eti_codigo" value="codigo" />
+						<h:outputText id="codigo"
+							value="#{pedidos_bean.pedido_seleccionado.clientes.codigoCliente}" />
+						<h:outputText id="eti_nombre" value="Nombre" />
+						<h:outputText id="nombre"
+							value="#{pedidos_bean.pedido_seleccionado.clientes.nombreCliente}" />
+						<h:outputText id="eti_fechaalta" value="Alta" />
+						<h:outputText id="alta"
+							value="#{pedidos_bean.pedido_seleccionado.clientes.fechaAltaCliente}" />
+						<h:outputText id="eti_calle" value="Calle" />
+						<h:outputText id="calle"
+							value="#{pedidos_bean.pedido_seleccionado.clientes.calleCliente}" />
+						<h:outputText id="eti_provincia" value="Provincia" />
+						<h:outputText id="provincia"
+							value="#{pedidos_bean.pedido_seleccionado.clientes.provinciaCliente}" />
+					</h:panelGrid>
+				</ace:panelExpansion>
+			</ace:dataTable>
+		</h:panelGrid>
+	</h:form>
+</h:body>
+</html>

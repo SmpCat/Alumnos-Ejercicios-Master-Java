@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ace="http://www.icefaces.org/icefaces/components">
+<h:head>
+	<!-- CARGA DE RECURSOS ESTATICOS -->
+  <h:outputStylesheet name="css/estiloPedidoGenerado.css" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"></link>
+
+</h:head>
+<h:body>
+
+	
+	<!-- CREACION DEL RESOURCEBUNDLE PARA LA IDIMATIZACION -->
+	<f:loadBundle basename="#{sessionScope.idioma_seleccionado}"
+		var="idioma" />
+
+
+		<h:form>
+        <div class="pedidoGenerado" id="pedido_generado">
+                    <h:outputText styleClass="textoGenerado" value="Pedido Generado Correctamente"></h:outputText>
+                    
+                    <img class="iconoBoton"
+						 height="90px"
+						 width="90px" 
+						 alt="correcto" 
+						 title="correcto"
+                   		 src="../resources/imagenes/checked.png">
+                   	</img>
+                    
+                    
+                    <h:commandButton class="botonGenerado" id="boton" value="OK"
+				action="#{generadoBean.irMenuInicio}"/>
+
+     </div>
+	</h:form>
+</h:body>
+</html>

@@ -1,0 +1,106 @@
+/****************************
+ *   ESTILOS DEL LOGIN		*
+ *							*
+ * Autor: Sergio Sanchez	*	
+ * Fecha: 25/06/2017		*
+ * Version: 2.5				*
+ ****************************/
+
+.ui-widget-content {
+    border: none; 
+    min-width: 32em; 
+    width: 100%; 
+    font-family: 'Open Sans', sans-serif;
+}
+
+.ui-inputfield.ui-state-optional {
+	margin-top: 0; 
+   	-webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: calc(100% - 50px);
+    border-radius: 80px;
+    box-sizing: border-box;
+    outline: 0;
+    margin-left: 10px;
+    padding-left: 25px;
+    font-size: 1em;
+    background: 0 0;
+    -webkit-transition: .2s ease-in-out;
+    transition: .2s ease-in-out;
+    opacity: 1;
+    background: #FEEFDC;
+    min-width:10em;
+    max-width:15em;
+    height: 1.8em;
+    border-color: #F3A43D;
+    font-family: 'Open Sans', sans-serif;
+    color: chocolate;
+}
+
+
+.ui-panel .ui-panel-titlebar {
+    padding: 0px;
+    padding-left: 40%;
+    border: none;
+    background: #F6C554;
+    height: 3em;
+    font-size: 1.3em;
+    font-family: "Open Sans", sans-serif;
+}
+
+
+.ui-input-label-left{
+	font-size: 1em;
+	padding-left: 1em;
+	width: 30%;
+	margin-top: 2em;
+	min-width: 8em;
+	max-width: 8em;
+	color: black;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.ui-widget input{
+    height: 2em;
+    min-width: 6em;
+    max-width: 8em;
+    width: 40%;
+    border-radius: 80px;
+    border: none;
+    font-size: 1em;
+	background: #F28425;
+	border-style: hidden;
+	margin-top: 2em;
+	margin-left: 1em;
+	color: white;
+	font-family: 'Open Sans', sans-serif;
+	
+}
+
+.ui-widget input:hover{
+  background-color: white; 
+  color: #F28425;  
+  border: 1px solid #F28425;
+}
+
+
+.ui-faces-message .ui-widget {
+   padding: 0.5em;
+   float:left;
+   font-size:.8em;
+   margin-top: 2em;
+}
+
+
+td {
+	width: 50%;	 
+}
+
+
+.ui-panel {
+	padding:0;
+	margin:0;
+	width: -webkit-fill-available;
+	height:  -webkit-fill-available;
+}
+

@@ -1,0 +1,198 @@
+/****************************
+ *   ESTILOS DEL MENU		*
+ *							*
+ * Autor: Sergio Sanchez	*	
+ * Fecha: 25/06/2017		*
+ * Version: 2.5				*
+ ****************************/
+
+html {
+	min-width : 25em; 
+}
+
+.ui-widget-content {
+    border: none;
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+
+.ui-inputfield.ui-state-optional {
+   	-webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: calc(100% - 50px);
+    border-radius: 80px;
+    box-sizing: border-box;
+    outline: 0;
+    margin-left: -45px;
+    padding-left: 25px;
+    font-size: 1.5em;
+    background: 0 0;
+    -webkit-transition: .2s ease-in-out;
+    transition: .2s ease-in-out;
+    opacity: 1;
+    background: #FEEFDC;
+    min-width:10em;
+    max-width:16em;
+    height: 2em;
+    border-color: #F3A43D;
+    font-family: "Open Sans", sans-serif;
+    color: chocolate;
+}
+
+
+.ui-panel .ui-panel-titlebar {
+    padding: 0px;
+    padding-left: 40%;
+    border: none;
+    background: #F6C554;
+    height: 3em;
+    font-size: 1.3em;
+    font-family: "Open Sans", sans-serif;
+     font-weight: 500; 
+}
+
+
+.ui-input-label-left{
+	font-size: 1.2em;
+	padding-left: 1em;
+	width: 30%;
+	margin-top: 2em;
+	min-width: 8em;
+	max-width: 10em;
+	color: black;
+}
+
+
+.ui-widget input{
+    height: 2.16em;
+    width: 30%;
+    min-width: 13em; 
+    border-radius: 0px 80px 80px 0px;
+    border: none;
+    font-size: 1.2em;
+	background: #F28425;
+	border: 2px solid #F28425;
+	margin-bottom: 1em;
+	margin-left: 0em;
+	color: white;
+	display: flex;
+   justify-content: center;
+   align-items: center;
+  transition: all 0.4s;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Open Sans', sans-serif;
+
+	
+}
+
+.ui-widget input:hover{
+  background-color: white; 
+  color: #F28425; 
+  border: 2px solid #F28425;
+  border-left:0px;
+  padding-right: 65px;
+}
+
+
+.ui-faces-message .ui-widget {
+   padding: 0.5em;
+   float:left ;
+   font-size:1em;
+   margin-left: -5em;
+   margin-top: 1.5em;
+   font-family: 'Open Sans', sans-serif;
+}
+
+
+.ui-widget input.confirmar{
+	height: 2em;
+	width:4em;
+    min-width: 4em; 
+    border-radius: 20px;
+    border: none;
+    font-size: 1em;
+	background: #c70f0f;
+	margin: 0em;
+   justify-content: normal;
+   align-items: normal;
+  transition: none;
+  cursor: auto;
+  display: unset;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.ui-widget input.confirmar:hover{
+  background-color: white; 
+  color: #c70f0f; 
+  border: 2px solid #c70f0f;
+	padding: 0px;
+	margin:0px;
+}
+
+.ui-dialog .ui-dialog-titlebar {
+  color: #d21e1e;
+  border:1px solid #d21e1e;
+}
+
+
+.ui-panel {
+	padding:0;
+	width: 100%;
+	height:  -webkit-fill-available;
+}
+
+.iconoBoton {
+	float:left;
+	border: 2px solid #F28425;
+	border-right:0px;
+	padding:.475em;
+	border-radius: 80px 0px 0px 80px;
+}
+
+.bienvenida{
+	height: 6em;
+	float:left;
+	width : 100%;
+	/* border: 1px solid #F28425; */
+	/* border-radius: 80px; */
+	/* padding-left: 6em; */
+	padding-top: 6px;
+	margin-bottom: 2em;
+	font-size: 1em;
+	color: #ab5408;
+	background-color: #fff3ea;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.labelBienvenida{
+	font-size: 1.5em;
+	margin-left: 1em; 
+}
+
+input.botonIdioma{
+	height: 1.5em; 
+	width:1.5em;
+	border-radius: 0;
+	background: 0;
+	border: 0; 
+	margin:0;
+	margin-left:.5em; 
+	float:none;
+	min-width:1em; 
+}
+
+input.botonIdioma:hover{
+  background-color:#FEEFDC;
+  border:0;
+  width:1.8em;
+  height: 1.8em;
+  padding:0; 
+}
+
+.cajaIdiomas {
+	float:right; 
+	margin-right: 2em; 
+	margin-top:.5em;
+}

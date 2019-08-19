@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:icecore="http://www.icefaces.org/icefaces/core"
+	xmlns:ace="http://www.icefaces.org/icefaces/components">
+<h:head>
+	<!-- CARGA DE RECURSOS ESTATICOS -->
+  <h:outputStylesheet name="css/estilosDataTable.css" />
+</h:head>
+<h:body>
+
+		<!-- CREACION DEL RESOURCEBUNDLE PARA LA IDIMATIZACION -->
+	<f:loadBundle basename="#{sessionScope.idioma_seleccionado}"
+		var="idioma" />
+
+	<h:form id="formu_datatable">
+		<h:panelGrid columns="1">
+
+			<!-- Tabla de iceFaces -->
+			<ace:dataTable id="tabla_pedidos"
+				value="#{pedidos_bean.lista_pedidos}" var="pedido"
+				scrollable="true"
+        		scrollHeight="200"
+				emptyMessage="#{idioma['form.label.sinEnvios']}"
+				reorderableColumns="false"
+				resizableColumns="true" selectionMode="multiple"
+				doubleClickSelect="true" binding="#{table_pedido}">
+				<!-- Cabeceras -->
+				<ace:columnGroup id="cabeceras_multiples">
+					<!-- Título Tabla -->
+					<ace:row>
+						<ace:column headerText="#{idioma['form.header.listado']}" colspan="7" />
+					</ace:row>
+					<!-- Cabeceras Tabla-->
+					<ace:row>
+						<ace:column headerText="#{idioma['form.label.selector']}" />
+						<ace:column headerText="#{idioma['form.label.nFila']}"  />
+						<ace:column headerText="#{idioma['form.label.nPedido']}"
+							filterBy="#{pedido.numeroPedido}" filterMatchMode="exact"
+							sortBy="#{pedido.numeroPedido}" />
+						<ace:column headerText="#{idioma['form.label.fecha']}" sortBy="#{pedido.fechaPedido}" />
+						<ace:column headerText="#{idioma['form.label.totalPedido']}" />
+						<ace:column headerText="#{idioma['form.label.cliente']}" />
+						<ace:column headerText="#{idioma['form.label.editar']}" />
+					</ace:row>
+				</ace:columnGroup>
+				<!-- Detalle de Expansion -->
+				<ace:column id="selector_fila">
+					<ace:expansionToggler id="selector"
+						changeListener="#{pedidos_bean.evento_SeleccionDetalle}" value="Eliminar"/>
+				</ace:column>
+				<!-- COLUMNA DE NUMERO DE FILA -->
+				<ace:column id="col_numerolinea">
+					<h:outputText id="numerolinea" value="#{table_pedido.rowIndex+1}" />
+				</ace:column>
+				<!-- COLUMNA ORDENADA Y FILTRADA -->
+				<ace:column id="col_numeropedido">
+					<h:outputText id="numero_pedido" value="#{pedido.numeroPedido}" />
+				</ace:column>
+				<!-- COLUMNA ORDENADA -->
+				<ace:column id="col_fechapedido">
+					<h:outputText id="fecha_pedido" value="#{pedido.fechaPedido}">
+						<f:convertDateTime type="date" pattern="dd-MMMM-yyyy" />
+					</h:outputText>
+				</ace:column>
+				<!-- COLUMNA DE TOTAL, SOLO CONVERSION DE DATOS -->
+				<ace:column id="col_totalPedido">
+					<h:outputText id="total_pedido" value="#{pedido.totalFacturaPedido}">
+						<f:convertNumber type="currency" />
+					</h:outputText>
+				</ace:column>
+				<!-- COLUMNA DE CODIGO CLIENTE -->
+				<ace:column id="col_cliente">
+					<h:outputText id="codigo_cliente"
+						value="#{pedido.usuarios.codUsuario}" />
+				</ace:column>
+				<ace:column id="col_eliminar" >
+					<h:commandButton id="show"
+						value="#{idioma['form.boton.eliminar']}"
+						actionListener="#{pedidos_bean.eventoEliminar}"
+						action="#{pedidos_bean.noAccion}"
+						styleClass="botonEliminar"
+						onclick="ice.ace.instance('formu_datatable:myDialog').show();">
+					</h:commandButton>
+				</ace:column>
+
+				<!-- PANEL DE DETALLE -->
+				
+			<ace:panelExpansion id="panel_detalle" >
+				    
+					<ace:dataTable id="tabla_articulos"
+				value="#{pedidos_bean.lista_lineaPedidos}" var="lineaPedido" binding="#{table_articulos}">
+				
+				<ace:columnGroup id="cabeceras_articulos">
+				<ace:row>
+					<ace:column headerText="#{idioma['subform.label.numero']}" />
+					<ace:column headerText="#{idioma['subform.label.codArticulo']}" />
+						<ace:column headerText="#{idioma['subform.label.articulo']}"/>
+						<ace:column headerText="#{idioma['subform.label.precio']}"/>
+						<ace:column headerText="#{idioma['subform.label.cantidad']}" />
+						<ace:column headerText="#{idioma['subform.label.descuento']}"/>
+						<ace:column headerText="#{idioma['form.label.editarArticulo']}"/>
+				</ace:row>
+				</ace:columnGroup>
+				
+				<ace:column id="numeroArticuloColumn">
+					<h:outputText id="numeroArticulo" value="#{table_articulos.rowIndex+1}" />
+				</ace:column>
+				
+				<ace:column id="codigoArticuloColumn">
+				<h:outputText id="codigoArticulo" 
+							value="#{lineaPedido.numeroUnidadesArticulo}" />
+				</ace:column>
+				<!-- COLUMNA DE CODIGO CLIENTE -->
+				<ace:column id="ccol_cliente">
+					<h:outputText id="ccodigo_cliente"
+						value="#{lineaPedido.articulos.descripcionArticulo}" />
+				</ace:column>
+				<ace:column id="cprecio_articuloColumn">
+					<h:outputText id="precio_articulo"
+						value="#{lineaPedido.articulos.precioUnidadArticulo} €" />
+				</ace:column>
+				<ace:column id="cantidadColumn">
+					<h:outputText id="cantidad"
+						value="#{lineaPedido.numeroUnidadesArticulo}" />
+				</ace:column>
+				<ace:column id="porcentajeDescuentoColumn">
+					<h:outputText id="porcentajeDescuento"
+						value="#{lineaPedido.porcentajeDescuento}%" />
+				</ace:column>
+				
+				<ace:column id="editarArticulo">
+					<h:commandButton id="edArticulo"
+						value="#{idioma['form.boton.eliminar']}"
+						actionListener="#{pedidos_bean.eventoEliminarArticulo}"
+						action="#{pedidos_bean.noAccion}"
+						styleClass="botonEliminar"
+						onclick="ice.ace.instance('formu_datatable:myDialog2').show();">
+					</h:commandButton>
+				</ace:column>
+					
+				</ace:dataTable>	
+		</ace:panelExpansion>
+						
+			</ace:dataTable>
+			
+			
+		
+			
+			
+			
+			 <ace:pushButton id="botonVolver" value="#{idioma['form.boton.volver']}"
+				action="#{pedidos_bean.volverAMenu}">
+				</ace:pushButton>
+		</h:panelGrid>
+		
+		
+		<ace:confirmationDialog id="myDialog"
+                    message="#{idioma['form.label.confirmPedido']}"
+                    header="#{idioma['form.header.confirmPedido']}"
+                    closable="true"
+                    closeOnEscape="false">
+                    
+                <h:panelGrid width="100%"
+                			 style="text-align: center;"
+                			 columns="2"
+                			 cellspacing="30">
+                    <h:commandButton class="confirmar" value="#{idioma['form.boton.si']}" action="#{pedidos_bean.eliminarPedido}" onclick="ice.ace.instance('formu_datatable:myDialog').hide();"/>
+                    <h:commandButton class="confirmar" value="#{idioma['form.boton.no']}" onclick="ice.ace.instance('formu_datatable:myDialog').hide();"/>
+                </h:panelGrid>
+            </ace:confirmationDialog>
+            
+            
+        <ace:confirmationDialog id="myDialog2"
+                    			message="#{idioma['form.label.confirmArticulo']}"
+                 			    header="#{idioma['form.header.confirmArticulo']}"
+                			    closable="true"
+                  				closeOnEscape="false">
+                    
+        	<h:panelGrid width="100%"
+                		 style="text-align: center;"
+                		 columns="2"
+                		 cellspacing="30">
+                    <h:commandButton class="confirmar" value="#{idioma['form.boton.si']}" action="#{pedidos_bean.eliminarLineaPedido}" onclick="ice.ace.instance('formu_datatable:myDialog2').hide();"/>
+                    <h:commandButton class="confirmar" value="#{idioma['form.boton.no']}" onclick="ice.ace.instance('formu_datatable:myDialog2').hide();"/>
+            </h:panelGrid>
+        </ace:confirmationDialog>
+		
+	</h:form>
+
+</h:body>
+</html>

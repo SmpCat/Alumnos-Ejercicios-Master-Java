@@ -1,0 +1,122 @@
+/*-- Estilos resalte mensajes --* /
+/*-- fecha: 27-4-2017. -- */
+/*-- version: 1 -- */
+
+html{
+	background: #a9a299;
+}
+
+table{
+	width : 100%;
+
+}
+
+td {
+	font-size: .9em;
+	font-family:  "Open Sans", sans-serif;
+}
+
+th {
+	font-size: 1em;
+	font-family:  "Open Sans", sans-serif; 
+	border-color: #F3A43D;
+}
+th.ui-widget-header{
+	color: black;
+	background: #dfa04a;
+	border-color: black;
+	
+}
+
+.ice-pushbutton button {
+    height: 2em;
+    min-width: 6em;
+    max-width: 8em;
+    width: 40%;
+    border-radius: 80px;
+    border: none;
+    font-size: 1em;
+	background: #F28425;
+	border-style: hidden;
+	margin-top: 2em;
+	margin-left: 1em;
+	color: white;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.ice-pushbutton button:hover {
+  background-color: #e9e3dd; 
+  color: #F28425;  
+  border: 1px solid #F28425;
+}
+
+
+.ui-widget input.botonEliminar {
+    height: 1.8em;
+    min-width: 6em;
+    max-width: 6em;
+    width: 6em;
+    border-radius: 80px;
+    border: none;
+    font-size: 1em;
+	background: #b80202;
+	border-style: hidden;
+	color: white;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.ui-widget input.botonEliminar:hover {
+    background-color: #ffffff; 
+  color: #b80202;  
+  border: 1px solid #b80202;
+}
+
+
+.ui-widget input{
+max-width: 5em; 
+background:white; 
+border: 1px solid #232323;
+border-radius: 30px;
+padding-left:10px;
+font-family: 'Open Sans', sans-serif;
+color: #be2a1a
+	
+}
+
+.ui-widget input.confirmar{
+	padding-left:5px; 
+	height: 2em;
+	width:4em;
+    min-width: 4em; 
+    border-radius: 20px;
+    border: none;
+    font-size: 1em;
+	background: #c70f0f;
+	color:white;
+	margin: 0em;
+   justify-content: normal;
+   align-items: normal;
+  transition: none;
+  cursor: auto;
+  display: unset;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.ui-widget input.confirmar:hover{
+  background-color: white; 
+  color: #c70f0f; 
+  border: 1px solid #c70f0f;
+	padding: 0px;
+	margin:0px;
+}
+
+
+p, span{
+	font-family: 'Open Sans', sans-serif;
+	}
+
+.ui-dialog .ui-dialog-titlebar {
+    padding: .4em 1em;
+    position: relative;
+    background:#e67171;
+}

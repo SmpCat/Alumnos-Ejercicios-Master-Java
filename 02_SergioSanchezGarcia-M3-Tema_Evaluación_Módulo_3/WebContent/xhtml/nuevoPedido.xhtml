@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ace="http://www.icefaces.org/icefaces/components"
+	xmlns:ice="http://www.icesoft.com/icefaces/component"
+	xmlns:c="http://java.sun.com/jstl/core">
+<h:head>
+	<!-- CARGA DE RECURSOS ESTATICOS -->
+  	<h:outputStylesheet name="css/estiloNuevoPedido.css"/>
+</h:head>
+<h:body>
+
+	<!-- CREACION DEL RESOURCEBUNDLE PARA LA IDIMATIZACION -->
+	<f:loadBundle basename="#{sessionScope.idioma_seleccionado}"
+		var="idioma" />
+
+	<!-- FORMULARIO -->
+	<h:form id="formu_login">
+            <ace:panel id="credencialesLogin" header="#{idioma['form.header.nuevoPedido']}" styleClass="panel">
+
+            <ace:dataTable id="tbl"
+        			   value="#{nuevoPedido.lista_articulos}" 
+        			   var="articulo"
+        			   scrollable="true"
+        			   scrollHeight="250">
+
+          <ace:column headerText="#{idioma['form.label.seleccion']}" >
+          	<ace:checkboxButton  value="#{nuevoPedido.seleccionado[articulo.codigoArticulo]}">
+          		 <ace:ajax execute="@form" render="unidades"/>
+          	</ace:checkboxButton>
+                       <!-- <f:selectItem  itemValue="#{articulo.codigoArticulo}"
+                        itemLabel="#{articulo.descripcionArticulo}"  -->
+          </ace:column>
+         
+           <ace:column headerText="#{idioma['form.label.unidades']}" >
+          		<ace:textEntry 	id="unidades" 
+          						value="#{nuevoPedido.unidades[articulo.codigoArticulo]}"
+          						size="3">
+          						<ace:clientValidateValueRange minimum="1" />
+          						<ace:clientValidateValueRange maximum="#{articulo.cantidad}" />
+                </ace:textEntry>
+                 
+           </ace:column>
+          <ace:column headerText="#{idioma['form.label.descripcion']}">
+          <h:outputText value="#{articulo.descripcionArticulo}">
+          </h:outputText>
+         </ace:column>
+         <ace:column headerText="#{idioma['form.label.precioUnidad']}">
+            <h:outputText value="#{articulo.precioUnidadArticulo} €"/>
+         </ace:column>
+         <ace:column headerText="#{idioma['form.label.stock']}">
+           <h:outputText value="#{articulo.cantidad}" />
+         </ace:column>
+     </ace:dataTable>
+     
+         <ace:pushButton class="botonNuevoPedido" id="botonGenerar" value="#{idioma['form.boton.generarPedido']}"
+				action="#{nuevoPedido.generarPedido}"/>
+                    
+                    <ace:pushButton class="botonNuevoPedido" id="botonVolver" value="#{idioma['form.boton.volver']}"
+				action="#{nuevoPedido.volverAMenu}">
+				</ace:pushButton>
+				<div id="messageDiv" style="width: 400px;">
+                        <ace:message  id="error_vacio" 
+                        for="unidades"
+                        			  showDetail="false" 
+                        			  showSummary="true" 
+                        			  initEffect="bounce" 
+                        			  changeEffect="explode"/>
+                    </div>
+
+	</ace:panel> 
+  
+	</h:form>
+	
+	
+	
+	
+	
+	
+</h:body>
+</html>
